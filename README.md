@@ -1,5 +1,5 @@
 # stac-asset-list
-API extension to add `/collections/&lt;collectionId>/items/&lt;itemId>/assets` url
+API extension to add `/collections/<collectionId>/items/<itemId>/assets` url
 
 
 |   |   |
