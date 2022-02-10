@@ -1,0 +1,44 @@
+openapi: 3.0.0
+info:
+  description: This is a definition of the asset list endpoint
+  version: "1.0.0"
+  title: The SpatioTemporal Asset Catalog API - Asset List
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+tags:
+  - name: Asset Search
+paths:
+  /collections/{collectionId}/items/{itemId}/assets:
+    get:
+      tags:
+        - Asset Search
+      summary: searches inventory
+      operationId: assetList
+      description: |
+        Paginated list of assets for the given itemId
+      parameters:
+        - in: path
+          name: collectionId
+          description: id for the collection
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: itemId
+          description: Item Id the assets are part of
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: paginated list of assets
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/assetCollection"
+components:
+  schemas:
+    assetCollection:
+      type: object
+      $ref: "https://raw.githubusercontent.com/cedadev/stac-asset-spec/main/json-schema/asset.json#/definitions/core"
