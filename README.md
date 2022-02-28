@@ -25,8 +25,8 @@ This should be implemented with some form of pagination to allow scrolling of th
 
 ## Examples
 
-[Item example](examples/item.json)
-[Asset Response](https://github.com/cedadev/stac-asset-spec/blob/main/examples/simple-asset.json)
+* [Item example](examples/item.json)
+* [Asset Response](https://github.com/cedadev/stac-asset-spec/blob/main/examples/simple-asset.json)
 
 ### HTTP GET Example
 
