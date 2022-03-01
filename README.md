@@ -28,30 +28,14 @@ This should be implemented with some form of pagination to allow scrolling of th
 * [Item example](examples/item.json)
 * [Asset Response](https://github.com/cedadev/stac-asset-spec/blob/main/examples/simple-asset.json)
 
-### HTTP GET Example
+### HTTP GET & POST Examples
 
-Request:
+GET Request:
 ```http
 HTTP GET /colletions/<collectionID>/items/<itemID>/assets
 ```
 
-Response with `200 OK`:
-```json
-{
-    "type": "FeatureCollection",
-    "features": [],
-    "links": [
-        {
-            "rel": "next",
-            "href": "http://api.cool-sat.com/search?page=2"
-        }
-    ]
-}
-```
-
-## HTTP POST Example
-
-Request:
+POST Request:
 ```json
 {
     "bbox": [-110, 39.5, -105, 40.5],
@@ -63,8 +47,52 @@ Response with `200 OK`:
 ```json
 {
     "type": "FeatureCollection",
-    "features": [],
+    "features": [
+      {
+        "id": "asdfsgsa",
+        "type": "Feature",
+        "media_type": "image/jpeg",
+        "bbox": [
+          172.91173669923782,
+          1.3438851951615003,
+          172.95469614953714,
+          1.3690476620161975
+        ],
+        "title": "data_file",
+        "roles": [
+          "data"
+        ],
+        "properties": {
+          "datetime": "2020-12-11T22:38:32125000Z"
+        },
+        "item": "dsfdsfs",
+        "links": [
+          {
+            "rel": "item",
+            "href": "./dsfdsfs.json",
+            "type": "application/json",
+            "title": "Simple Example Item"
+          },
+          {
+            "rel": "parent",
+            "href": "./dsfdsfs.json",
+            "type": "application/json",
+            "title": "Simple Example Item"
+          },
+          {
+            "rel": "root",
+            "href": "./collection.json",
+            "type": "application/json",
+            "title": "Simple Example Collection"
+          }
+        ]
+      },
+    ],
     "links": [
+        {
+            "rel": "self",
+            "href": "http://api.cool-sat.com/search"
+        },
         {
             "rel": "next",
             "href": "http://api.cool-sat.com/search?page=2"
